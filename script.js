@@ -1,4 +1,4 @@
-function binary(arr, findNum) {
+function binarySearch(arr, findNum) {
     let left = 0;
     let right = arr.length - 1;
   
@@ -8,17 +8,15 @@ function binary(arr, findNum) {
       if (arr[mid] === findNum) {
         return mid; 
       } else if (arr[mid] < findNum) {
-        left = mid; 
+        left = mid + 1; 
       } else {
-        right = mid; 
+        right = mid - 1; 
       }
     }  
     return -1; 
 }
 
-function linear(arr, findNum) {
-    let isFind = true;
-    
+function linearSearch(arr, findNum) {   
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === findNum) {
             return i; 
@@ -40,19 +38,20 @@ let arr = [
     91, 92, 93, 94, 95, 96, 97, 98, 99, 100
 ];
 
-let findNum = 87;
+let findNumberLinear = +prompt("Enter the number to find in array for linear search: ");
+let findNumberBinary = +prompt("Enter the number to find in array for binary search: ");
 
-let resultLinear = linear(arr, findNum);
-let resultBinary = binary(arr, findNum);
+let resultLinear = linearSearch(arr, findNumberLinear);
+let resultBinary = binarySearch(arr, findNumberBinary);
 
 if (resultBinary !== -1) {
-    console.log("Binary: ", arr[resultBinary]);
+    console.log("Binary search: ", arr[resultBinary]);
 } else {
-    console.log("Binary: Number not found");
+    console.log("Binary search: Number not found");
 }
 
 if (resultLinear !== -1) {
-    console.log("Linear: ", arr[resultLinear]);
+    console.log("Linear search: ", arr[resultLinear]);
 } else {
-    console.log("Linear: Number not found");
+    console.log("Linear search: Number not found");
 }

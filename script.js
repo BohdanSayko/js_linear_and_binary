@@ -5,7 +5,7 @@ function binary(arr, findNum) {
     while (left <= right) {
       let mid = Math.floor((left + right) / 2);
   
-      if (arr[mid] == findNum) {
+      if (arr[mid] === findNum) {
         return mid; 
       } else if (arr[mid] < findNum) {
         left = mid; 
@@ -17,8 +17,10 @@ function binary(arr, findNum) {
 }
 
 function linear(arr, findNum) {
+    let isFind = true;
+    
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i] == findNum) {
+        if (arr[i] === findNum) {
             return i; 
         }
     }
